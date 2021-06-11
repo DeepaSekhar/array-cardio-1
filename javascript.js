@@ -1,6 +1,5 @@
 // Get your shorts on - this is an array workout!
 // ## Array Cardio Day 1
-
 // Some data we can work with
 
 const inventors = [
@@ -64,22 +63,38 @@ const people = [
 
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
-console.table("i am working");
+console.log("......filter........");
+const fifteen = inventors.filter(
+  (inventor) => inventor.year >= 1500 && inventor.year <= 1600
+);
+console.table(fifteen);
 // Array.prototype.map()
 // 2. Give us an array of the inventor first and last names
-
+console.log("......map........");
+const names = inventors.map((inventor) => inventor.first + inventor.last);
+console.table(names);
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
-// const ordered = inventors.sort(function(a, b) {
-//   if(a.year > b.year) {
+// const ordered = inventors.sort(function (firstName, secondName) {
+//   if (firstName.year > secondName.year) {
 //     return 1;
 //   } else {
 //     return -1;
 //   }
 // });
+// using terinary operator
+
+console.log("......sort........");
+const ordered = inventors.sort((a, b) => (a.year > b.year ? 1 : -1));
+console.table(ordered);
 
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live?
+console.log("......Reduce........");
+const totalYears = inventors.reduce((total, inventor) => {
+  return total + (inventor.passed - inventor.year);
+}, 0);
+console.log("inventers Lived", totalYears);
 
 // 5. Sort the inventors by years lived
 
